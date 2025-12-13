@@ -12,7 +12,7 @@ def die(msg: str):
     print(msg, file=sys.stderr)
     sys.exit(1)
 
-def post_photo(image_url: str, caption: str = "") -> str:
+def post_photo(ACCESS_TOKEN: str, IG_USER_ID: str, image_url: str, caption: str = "") -> str:
     if not ACCESS_TOKEN or not IG_USER_ID:
         die("Set env vars IG_ACCESS_TOKEN and IG_USER_ID first.")
 
@@ -52,14 +52,4 @@ def post_photo(image_url: str, caption: str = "") -> str:
     print("media_id:", media_id)
     return media_id
 
-if __name__ == "__main__":
-    # Example usage:
-    # export IG_ACCESS_TOKEN="EAAB..."
-    # export IG_USER_ID="1789..."
-    # python post_instagram_photo.py "https://yourdomain.com/public/test.jpg" "hello from python"
 
-    # if len(sys.argv) < 2:
-    #     die("Usage: python post_instagram_photo.py <public_image_https_url> [caption]")
-    image_url = "https://live.staticflickr.com/65535/54927165362_6e791fe6c0_h.jpg"
-    caption = "Test"
-    post_photo(image_url, caption)
