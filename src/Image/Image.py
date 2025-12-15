@@ -37,6 +37,7 @@ class Image:
         """
         Removes image from used images
         """
+        # not implemented yet!
         pass
     
     def move_on_disK(self, dst):

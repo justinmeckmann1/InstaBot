@@ -26,6 +26,9 @@ if __name__ == "__main__":
     post.USER_ID = config["authentication"]["IG_USER_ID"]
     post.post_photo(image_url=url, caption=img.caption)
     
-    # delete used image 
-    img.move_on_disK(dst= config["data"]["used_image_dir"])
+    # delete / move used image 
+    if config["settings"]["moveUsedPictures"]: 
+        img.move_on_disK(dst= config["data"]["used_image_dir"])
+    elif config["settings"]["deleteUsedPictures"]: 
+        img.delete()
 

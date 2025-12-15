@@ -13,6 +13,7 @@
         "used_image_dir":  "./posted"
     },
     "settings": {
-        "deleteUsedPictures": true
+        "deleteUsedPictures": false,
+		"moveUsedPictures": true
     }
 }
