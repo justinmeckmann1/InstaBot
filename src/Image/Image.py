@@ -43,5 +43,5 @@ class Image:
     def move_on_disK(self, dst):
         dst = validate(dst)
         self.path.replace(dst.joinpath(self.path.name))
-            
         
+        print(f"Moved image from {self.path} to {dst.joinpath(self.path.name)}")
