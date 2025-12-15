@@ -1,0 +1,18 @@
+{
+    "authentication": {
+        "APP_ID": "",
+        "APP_SECRET": "",
+        "IG_USER_ID": "",
+        "SHORT_LIVED_TOKEN": "",
+        "LONG_LIVED_TOKEN": "",
+        "URL": "https://graph.facebook.com/v24.0/oauth/access_token", 
+        "IMGBB_API_KEY": ""
+    },
+    "data": {
+        "image_dir": "./post",
+        "used_image_dir":  "./posted"
+    },
+    "settings": {
+        "deleteUsedPictures": true
+    }
+}
