@@ -1,10 +1,7 @@
-# post_instagram_photo.py
 import os
 import sys
 import time
-import requests
-   # your Instagram Business/Creator IG user id
-
+import requests 
 
 class Post: 
     def __init__(self):

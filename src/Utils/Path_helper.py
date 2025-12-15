@@ -1,6 +1,7 @@
 from pathlib import Path 
+import os
 
-def validate(path_or_dir) -> Path:
+def validate(path_or_dir, gen_dir=False) -> Path:
     """
     Args:
         path_or_dir (str or path): string or path pointing to a file or directory
@@ -20,6 +21,12 @@ def validate(path_or_dir) -> Path:
     # confirm dir exists: 
     if not path_or_dir.exists(): 
         print(f"Directory {path_or_dir} does not exist.")
+        
+        if gen_dir and path_or_dir.is_dir(): 
+            os.makedirs(path_or_dir)
+        
         exit()
         
     return path_or_dir
+
+

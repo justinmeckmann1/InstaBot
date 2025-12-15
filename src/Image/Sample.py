@@ -1,6 +1,7 @@
+from Utils.Path_helper import validate
+
 from pathlib import Path 
 import random
-from path_helper import validate
 
 def get_sample(directory: Path, filetypes = ["JPEG","JPG"]):
     directory = validate(directory)

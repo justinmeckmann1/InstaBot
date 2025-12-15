@@ -1,4 +1,4 @@
-from metadata import get_metadata
+from Image.Metadata import get_metadata
 
 from datetime import datetime
 
