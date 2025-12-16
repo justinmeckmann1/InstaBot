@@ -110,7 +110,7 @@ def _exif_get_by_tagname(exif_data, wanted_tagname: str):
     return None
 
 
-def get_metadata(image_path: Path, meta_type: str) -> str | None:
+def read_metadata(image_path: Path, meta_type: str) -> str | None:
     with Image.open(image_path) as img:
         wanted = meta_type.strip().lower()
 

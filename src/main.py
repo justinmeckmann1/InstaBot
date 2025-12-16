@@ -1,9 +1,10 @@
 from Utils.config import parse_config, write_config
-
 from Image.Sample import get_sample 
 from Image.Image import Image
 from API.Post import Post
 from Utils.Token import get_long_lived_token, validate
+
+import sys
 
 if __name__ == "__main__":
     config = parse_config()
@@ -12,7 +13,13 @@ if __name__ == "__main__":
     image_path = get_sample(config["data"]["image_dir"])
     img = Image()
     img.path = image_path
-    img.caption # load caption
+    try: 
+        img.caption # load caption
+    except: 
+        print("Title could not be read from file. Exiting and moving file to corrupted directory...")
+        img.move_on_disK(dst= config["data"]["corrupted_image_dir"])
+        sys.exit(0)
+
     img.upload(config["authentication"]["IMGBB_API_KEY"])
     url = img.url
     

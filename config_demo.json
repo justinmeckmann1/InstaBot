@@ -10,7 +10,8 @@
     },
     "data": {
         "image_dir": "./post",
-        "used_image_dir":  "./posted"
+        "used_image_dir":  "./posted",
+        "corrupted_image_dir": "./corrupted"
     },
     "settings": {
         "deleteUsedPictures": false,
