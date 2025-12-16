@@ -12,6 +12,7 @@ if __name__ == "__main__":
     image_path = get_sample(config["data"]["image_dir"])
     img = Image()
     img.path = image_path
+    img.caption # load caption
     img.upload(config["authentication"]["IMGBB_API_KEY"])
     url = img.url
     
