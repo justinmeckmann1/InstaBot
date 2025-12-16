@@ -1,12 +1,11 @@
 from Image.Metadata import read_metadata
-import sys
 
 from datetime import datetime
 
 def get_caption_title_date(title: str, date: str = None): 
     caption = ""
     if title == None: 
-        sys.exit("Title could not be read from file. Exiting...")
+        raise("Title could not be read from file. Exiting...")
     else:
         caption += title 
     if not date == None: 
