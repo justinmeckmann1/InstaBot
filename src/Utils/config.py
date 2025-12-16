@@ -1,6 +1,7 @@
 import json
+from pathlib import Path
 
-def parse_config(path = "config.json"): 
+def parse_config(path = Path(__file__).resolve().parent.joinpath("../../config.json")): 
     with open(path, "r") as f: 
         return json.load(f)
 
