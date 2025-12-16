@@ -15,5 +15,8 @@ def get_sample(directory: Path, filetypes = ["JPEG","JPG"]):
         if f.as_posix().lower().endswith(tuple(f".{ft.lower()}" for ft in filetypes))
     ]
     
+    if len(files) == 0: 
+        raise("There are no images in the post directory.")
+    
     # return random file
     return random.choice(files)
