@@ -34,10 +34,12 @@ class Post:
         sys.exit(1)
 
     def post_photo(self, image_url: str, caption: str = "") -> str:
+        print("Posting image...")
         if not self.__ACCESS_TOKEN or not self.__USER_ID:
             self.die("Set env vars ACCESS_TOKEN and IG_USER_ID first.")
 
         # 1) Create container
+        print("Preparing container")
         r = requests.post(
             f"{self.GRAPH}/{self.__USER_ID}/media",
             data={
@@ -54,9 +56,10 @@ class Post:
         print("creation_id:", creation_id)
 
         # Optional: wait a moment (usually not needed, but avoids occasional race)
-        time.sleep(2)
+        time.sleep(1)
 
         # 2) Publish container
+        print("Uploading image")
         r = requests.post(
             f"{self.GRAPH}/{self.__USER_ID}/media_publish",
             data={
@@ -70,7 +73,10 @@ class Post:
             self.die(f"Publish failed: {data}")
 
         self.__media_id = data["id"]
-        print("media_id:", self.__media_id)
+        print(
+            "Image published:\n"
+            f"media_id: { self.__media_id}"
+            )
         return self.__media_id
 
 

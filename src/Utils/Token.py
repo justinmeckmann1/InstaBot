@@ -45,7 +45,7 @@ def validate(config: dict, TOKEN) -> bool:
         data = r.json()
         if data['data']['is_valid']:
             expires = datetime.datetime.fromtimestamp(data['data'].get('expires_at')).strftime("%A, %B %d, %Y at %H:%M")
-            print(f"Token is valid. Expires {expires}")
+            print(f"Token is valid until: {expires}")
             return True
         else: 
             return False

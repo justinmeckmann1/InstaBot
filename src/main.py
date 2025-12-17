@@ -1,4 +1,5 @@
 from Utils.config import parse_config, write_config
+from Utils.Timestamp import print_timestamp
 from Image.Sample import get_sample 
 from Image.Image import Image
 from API.Post import Post
@@ -7,6 +8,8 @@ from Utils.Token import get_long_lived_token, validate
 import sys
 
 if __name__ == "__main__":
+    print_timestamp() # print current date and time to console (for logging) 
+    
     config = parse_config()
 
     # retrieve photo

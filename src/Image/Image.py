@@ -2,6 +2,7 @@ from Utils.Path_helper import validate
 from Image.Caption import get_caption_from_file
 from API.Upload import upload_to_imgbb
 
+import sys
 
 class Image: 
     def __init__(self):
@@ -23,7 +24,8 @@ class Image:
     @property
     def caption(self):
         if self.__caption is None and self.__path is not None:
-            self.__caption = get_caption_from_file(self.__path)
+            try: self.__caption = get_caption_from_file(self.__path)
+            except: sys.exit("Unable to fetch caption from Title and Date.") 
         return self.__caption
     
     @property
@@ -31,6 +33,9 @@ class Image:
         return self.__url
 
     def upload(self, api_key):
+        if not self.path: 
+            raise("Cannot upload image without a path specified.")
+        print(f"Uploading image {self.path.name}.")
         self.__url = upload_to_imgbb(api_key, self.path, expire_seconds=120) # expires after 2 minuets 
         
     def delete(self): 
