@@ -35,15 +35,14 @@ class Image:
     def upload(self, api_key):
         if not self.path: 
             raise("Cannot upload image without a path specified.")
-        print(f"Uploading image {self.path.name}.")
-        self.__url = upload_to_imgbb(api_key, self.path, expire_seconds=120) # expires after 2 minuets 
+        self.__url = upload_to_imgbb(api_key, self.path, expire_seconds=600) # expires after 5 minuets 
         
     def delete(self): 
         """
         Removes image from used images
         """
-        # not implemented yet!
-        pass
+        #TODO not implemented yet!
+        raise NotImplementedError
     
     def move_on_disK(self, dst):
         dst = validate(dst)

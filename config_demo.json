@@ -15,6 +15,7 @@
     },
     "settings": {
         "deleteUsedPictures": false,
-		"moveUsedPictures": true
+		"moveUsedPictures": true,
+        "maxAttempts": 5
     }
 }

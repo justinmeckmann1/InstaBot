@@ -5,7 +5,7 @@ from pathlib import Path
 from pathlib import Path
 
 def upload_to_imgbb(api_key, image_path: str, expire_seconds: int = 600) -> str:
-    print("Uploading image...")
+    print(f"Uploading image: {image_path}.")
 
     image_path = Path(image_path)
 
