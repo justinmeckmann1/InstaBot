@@ -1,7 +1,7 @@
 from PIL import Image
 import io
 
-def compress(src: str, MAX_SIZE = 8 * 1024 * 1024) -> bytes:
+def compress(src: str, MAX_SIZE = 4 * 1024 * 1024) -> bytes:
     img = Image.open(src).convert("RGB")
 
     quality = 95
