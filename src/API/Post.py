@@ -31,10 +31,11 @@ class Post:
 
     def die(self, msg: str):
         print(msg, file=sys.stderr)
-        sys.exit(1)
+        # sys.exit(1)
+        raise(msg)
 
     def post_photo(self, image_url: str, caption: str = "") -> str:
-        print("Posting image...")
+        print("Posting image:")
         if not self.__ACCESS_TOKEN or not self.__USER_ID:
             self.die("Set env vars ACCESS_TOKEN and IG_USER_ID first.")
 

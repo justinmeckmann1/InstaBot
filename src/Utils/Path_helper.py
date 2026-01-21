@@ -15,8 +15,7 @@ def validate(path_or_dir, gen_dir=False) -> Path:
         try: 
             path_or_dir = Path(path_or_dir)
         except TypeError: 
-            print("Not a valid directory")
-            exit()
+            raise("Not a valid directory")
     
     # confirm dir exists: 
     if not path_or_dir.exists(): 
@@ -24,9 +23,8 @@ def validate(path_or_dir, gen_dir=False) -> Path:
         
         if gen_dir and path_or_dir.is_dir(): 
             os.makedirs(path_or_dir)
-        
-        exit()
-        
+        else:
+            raise()        
     return path_or_dir
 
 

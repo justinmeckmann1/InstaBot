@@ -2,7 +2,7 @@ from Utils.Path_helper import validate
 from Image.Caption import get_caption_from_file
 from API.Upload import upload_to_imgbb
 
-import sys
+from copy import copy
 
 class Image: 
     def __init__(self):
@@ -25,7 +25,7 @@ class Image:
     def caption(self):
         if self.__caption is None and self.__path is not None:
             try: self.__caption = get_caption_from_file(self.__path)
-            except: sys.exit("Unable to fetch caption from Title and Date.") 
+            except: raise("Unable to fetch caption from Title and Date.") 
         return self.__caption
     
     @property
@@ -45,7 +45,10 @@ class Image:
         raise NotImplementedError
     
     def move_on_disK(self, dst):
-        dst = validate(dst)
-        self.path.replace(dst.joinpath(self.path.name))
+        src = copy(self.path) # get the old file location
+        dst = validate(dst).joinpath(self.path.name)
         
-        print(f"Moved image from {self.path} to {dst.joinpath(self.path.name)}")
+        self.path = src.replace(dst) # move file on disk and update path
+        print(f"Moved image from {src} to {dst}")
+        
+        return self.path

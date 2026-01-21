@@ -9,9 +9,9 @@
         "IMGBB_API_KEY": ""
     },
     "data": {
-        "image_dir": "./post",
-        "used_image_dir":  "./posted",
-        "corrupted_image_dir": "./corrupted"
+        "image_dir": "./images/post",
+        "used_image_dir":  "./images/posted",
+        "corrupted_image_dir": "./images/corrupted"
     },
     "settings": {
         "deleteUsedPictures": false,
